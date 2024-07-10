@@ -1,0 +1,10 @@
+ form {
+   width: 80%;
+   margin: 0 auto;
+   padding: 20px;
+
+ }
+
+ form .form-floating {
+   margin: 30px 0;
+ }

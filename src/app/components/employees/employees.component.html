@@ -1,0 +1,72 @@
+<div id="root">
+  <div class="d-flex p0 m-0 searchsec">
+    <div class="search">
+      <i class="fa fa-search h-100" aria-hidden="true"></i>
+    </div>
+    <input
+      type="search "
+      class="form-control"
+      (input)="search()"
+      [(ngModel)]="searchValue"
+      name=""
+      placeholder="search"
+      id=""
+    />
+  </div>
+  <div class="tablebox">
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Position</th>
+          <th scope="col">Department</th>
+          <th scope="col">Salary</th>
+          <th scope="col">View</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let emp of employees
+              | paginate : { itemsPerPage: 10, currentPage: p };
+            let i = index
+          "
+        >
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            <em>{{ emp.name }}</em>
+          </td>
+          <td>{{ emp.position }}</td>
+          <td>{{ emp.department }}</td>
+          <td>{{ emp.salary }}</td>
+
+          <td>
+            <a
+              name=""
+              id=""
+              class="btn btn-primary"
+              [routerLink]="['/employee', emp._id]"
+              role="button"
+              >View</a
+            >
+          </td>
+
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteEmp(emp._id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

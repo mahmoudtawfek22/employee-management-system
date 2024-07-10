@@ -1,0 +1,26 @@
+<header>
+  <div class="container">
+    <h1>EMMS</h1>
+    <nav>
+      <i class="fas fa-bars toggle-menu" (click)="change()"></i>
+      <ul id="navul">
+        <li>
+          <a
+            routerLink="/employees"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Employees</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/addemployee"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Add Employee</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

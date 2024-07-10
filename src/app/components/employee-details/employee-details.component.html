@@ -1,0 +1,165 @@
+<div id="root">
+  <div class="account-container mt-0">
+    <div class="editbtn">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        <i class="fas fa-user-edit"></i>
+      </button>
+    </div>
+    <div class="AccSideBar position-relative">
+      <div class="userimage">
+        <img
+          src="./assets/person.png"
+          alt="user avatar"
+          class="avatar"
+          height="100"
+          width="100"
+        />
+
+        <p>{{ employeeDetails?.name }}</p>
+      </div>
+      <div class="user-data">
+        <div class="box">
+          <div>
+            <p class="label">Name:</p>
+            <p>{{ employeeDetails?.name }}</p>
+          </div>
+          <div>
+            <p class="label">Position:</p>
+            <p>{{ employeeDetails?.position }}</p>
+          </div>
+        </div>
+        <div class="box">
+          <div>
+            <p class="label">Department:</p>
+            <p>{{ employeeDetails?.department }}</p>
+          </div>
+          <div>
+            <p class="label">Salary:</p>
+            <p>{{ employeeDetails?.salary }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Details</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" [formGroup]="employeeForm">
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+                id="name"
+                placeholder="name"
+              />
+              <label for="name">Name</label>
+            </div>
+
+            @if (employeeForm.controls["name"].touched&&
+            employeeForm.controls["name"].invalid ){
+            <div class="form-text text-danger error">
+              @if (employeeForm.controls["name"].errors?.["required"]) {
+              <small>Name is required</small>
+              }
+            </div>
+            }
+
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="position"
+                placeholder="Position"
+                formControlName="position"
+              />
+              <label for="position">Position</label>
+            </div>
+
+            @if (employeeForm.controls["position"].touched&&
+            employeeForm.controls["position"].invalid ){
+            <div class="form-text text-danger error">
+              @if (employeeForm.controls["position"].errors?.["required"]) {
+              <small>Name is required</small>
+              }
+            </div>
+            }
+
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="department"
+                placeholder="department"
+                formControlName="department"
+              />
+              <label for="department">Department</label>
+            </div>
+
+            @if (employeeForm.controls["department"].touched&&
+            employeeForm.controls["department"].invalid ){
+            <div class="form-text text-danger error">
+              @if (employeeForm.controls["department"].errors?.["required"]) {
+              <small>Name is required</small>
+              }
+            </div>
+            }
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="salary"
+                placeholder="salary"
+                formControlName="salary"
+              />
+              <label for="salary">Salary</label>
+            </div>
+            @if (employeeForm.controls["salary"].touched&&
+            employeeForm.controls["salary"].invalid ){
+            <div class="form-text text-danger error">
+              @if (employeeForm.controls["salary"].errors?.["required"]) {
+              <small>Name is required</small>
+              }
+            </div>
+            }
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
