@@ -9,11 +9,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-employee-details',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CurrencyPipe],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.css',
 })
