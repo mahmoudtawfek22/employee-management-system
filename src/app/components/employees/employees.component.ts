@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../interfaces/employee';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -9,7 +9,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
 @Component({
   selector: 'app-employees',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, NgxPaginationModule],
+  imports: [
+    CommonModule,
+    RouterLink,
+    FormsModule,
+    NgxPaginationModule,
+    CurrencyPipe,
+  ],
   templateUrl: './employees.component.html',
   styleUrl: './employees.component.css',
 })

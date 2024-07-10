@@ -50,14 +50,26 @@ export class EmployeeDetailsComponent {
   }
 
   onSubmit() {
+    let close = document.getElementById('close-modal') as HTMLButtonElement;
+
     this.empService.updateEmployee(this.id, this.employeeForm.value).subscribe(
       (res) => {
         // this.router.navigate(['/employee', this.employeeDetails?._id]);
         this.ngOnInit();
+        close.click();
       },
       (err) => {
         console.error(err);
       }
     );
+  }
+
+  close() {
+    this.employeeForm.patchValue({
+      name: this.employeeDetails?.name,
+      position: this.employeeDetails?.position,
+      department: this.employeeDetails?.department,
+      salary: this.employeeDetails?.salary,
+    });
   }
 }
