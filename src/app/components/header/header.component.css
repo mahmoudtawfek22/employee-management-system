@@ -47,6 +47,7 @@ header nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
 }
 
 header nav .toggle-menu {
@@ -104,9 +105,9 @@ header nav ul {
 }
 
 header nav ul li a {
-  color: white;
+  color: rgb(178, 195, 240);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   transition: .3s;
 
   padding: 20px;

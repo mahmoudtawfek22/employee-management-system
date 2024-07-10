@@ -6,7 +6,7 @@
 
 
 #root {
-  height: 100vh;
+  min-height: 80vh;
   background: rgb(151, 160, 251);
   background: radial-gradient(circle, rgb(47, 51, 84) 10%, rgb(58, 71, 126) 51%, rgb(75, 95, 230) 94%);
 }
