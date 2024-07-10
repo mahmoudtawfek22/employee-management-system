@@ -33,8 +33,13 @@ export class AddEmployeeComponent {
     });
   }
   onSubmit() {
-    this.empService.addEmployee(this.employeeForm.value).subscribe((res) => {
-      this.router.navigate(['/employees']);
-    });
+    this.empService.addEmployee(this.employeeForm.value).subscribe(
+      (res) => {
+        this.router.navigate(['/employees']);
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 }

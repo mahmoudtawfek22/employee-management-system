@@ -25,19 +25,29 @@ export class EmployeesComponent {
     this.getAllEmp();
   }
   getAllEmp() {
-    this.empService.getAllEmployees().subscribe((res) => {
-      console.log(res);
-      this.employees = res;
-      this.lastEmployees = [...this.employees];
-      this.total = this.lastEmployees.length;
-    });
+    this.empService.getAllEmployees().subscribe(
+      (res) => {
+        console.log(res);
+        this.employees = res;
+        this.lastEmployees = [...this.employees];
+        this.total = this.lastEmployees.length;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 
   deleteEmp(id: string) {
-    this.empService.deleteEmployee(id).subscribe((res) => {
-      console.log(res);
-      this.getAllEmp();
-    });
+    this.empService.deleteEmployee(id).subscribe(
+      (res) => {
+        console.log(res);
+        this.getAllEmp();
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
   search() {
     console.log(this.searchValue);

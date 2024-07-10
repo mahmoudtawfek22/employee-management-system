@@ -49,11 +49,14 @@ export class EmployeeDetailsComponent {
   }
 
   onSubmit() {
-    this.empService
-      .updateEmployee(this.id, this.employeeForm.value)
-      .subscribe((res) => {
-        // this.router.navigate(['/employees']);
+    this.empService.updateEmployee(this.id, this.employeeForm.value).subscribe(
+      (res) => {
+        // this.router.navigate(['/employee', this.employeeDetails?._id]);
         this.ngOnInit();
-      });
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 }
